@@ -1,21 +1,7 @@
 from typing import TextIO
-from enum import Enum
 
-class RoomType(Enum):
-    Couple = "C"
-    Double = "D"
-    Triple = "T"
-    Quadruple = "Q"
+from hotel.model import Guests, GuestType, Rooms, RoomType
 
-
-class GuestType(Enum):
-    Masculine = "M"
-    Feminine = "F"
-    Couple = "C"
-
-
-Rooms = dict[RoomType, list[str]]
-Guests = dict[GuestType, list[str]]
 
 def parse_from_file(file: str):
     with open(file) as f:

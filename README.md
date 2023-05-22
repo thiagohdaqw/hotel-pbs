@@ -63,3 +63,7 @@ min:
 \forall j \in [1,k]
 \left ( \sum_{i=1}^{-c} H_iK_j = 0  \right )
 ```
+
+## Uso
+
+`python3 -m hotel samples/root.desc`
