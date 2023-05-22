@@ -13,6 +13,8 @@ RESULT_FILE="result/$(basename $OUTPUT_FILE)"
 
 echo "Generating formulae for $FILE...";
 
-python3 hotel/main.py $FILE  > $OUTPUT_FILE 2> $RESULT_FILE.symbols
-clasp $OUTPUT_FILE > $RESULT_FILE.clasp
-python3 hotel/clasp_translate.py $RESULT_FILE > $RESULT_FILE.vars
+python3 hotel/main.py $FILE  > $OUTPUT_FILE.clasp 2> $RESULT_FILE.symbols;
+clasp $OUTPUT_FILE.clasp > $RESULT_FILE.clasp;
+python3 hotel/clasp_translate.py $RESULT_FILE > $RESULT_FILE.vars;
+
+cat $RESULT_FILE.vars

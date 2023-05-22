@@ -3,6 +3,7 @@ import json
 
 import input
 from input import Guests, Rooms, GuestType, RoomType
+from functools import partial
 
 Symbols = dict[str, int]
 
@@ -18,7 +19,7 @@ def main(input_filename: str | None):
     rooms, guests = input.parse_from_file(input_filename) if input_filename is not None else input.parse(sys.stdin)
     symbols = generate_symbols(rooms, guests)
 
-    print(json.dumps(symbols), file=sys.stderr)
+    print(json.dumps({'symbols': symbols, 'guests': guests, 'rooms': rooms}), file=sys.stderr)
 
     constraint_count = 2*count_items(guests) + len(rooms[RoomType.Double.value]) + len(rooms[RoomType.Triple.value]) + len(rooms[RoomType.Quadruple.value])
 
@@ -26,14 +27,14 @@ def main(input_filename: str | None):
     generate_minimize_room_contraint(rooms, symbols)
 
     constraints = [
-        generate_all_guests_in_one_room_constraint,
-        generate_double_room_contraint,
-        generate_triple_room_contraint,
-        generate_quadruple_room_contraint
+        partial(generate_all_guests_in_one_room_constraint, rooms=rooms),
+        partial(generate_capacity_room_contraint, capacity=2, rooms=rooms[RoomType.Double.value], room_type=RoomType.Double.value),
+        partial(generate_capacity_room_contraint, capacity=3, rooms=rooms[RoomType.Triple.value], room_type=RoomType.Triple.value),
+        partial(generate_capacity_room_contraint, capacity=4, rooms=rooms[RoomType.Quadruple.value], room_type=RoomType.Quadruple.value),
     ]
 
-    for contraint in constraints:
-        contraint(guests, rooms, symbols)
+    for constraint in constraints:
+        constraint(guests=guests, symbols=symbols)
 
 
 def generate_symbols(rooms: Rooms, guests: Guests) -> Symbols:
@@ -53,7 +54,7 @@ def generate_symbols(rooms: Rooms, guests: Guests) -> Symbols:
 
 
 def generate_header(symbols, constraints_count):
-    print(f"* #variable={len(symbols)} #constraint= {constraints_count}")
+    print(f"* #variable={len(symbols)+1} #constraint= {constraints_count}")
 
 
 def generate_minimize_room_contraint(rooms: Rooms, symbols: Symbols):
@@ -79,40 +80,14 @@ def generate_all_guests_in_one_room_constraint(guests, rooms, symbols):
         print(f">= {count_items(rooms) - 1};")
 
 
-def generate_double_room_contraint(guests, rooms, symbols):
-    double_rooms = rooms[RoomType.Double.value]
-
-    for room in iter_list(RoomType.Double.value, double_rooms):
+def generate_capacity_room_contraint(guests, symbols, rooms, room_type, capacity):
+    for room in iter_list(room_type, rooms):
         for guest in iter_all_items(guests):
             symbol = symbols[f"{guest}{room}"]
             print(f"+1 ~x{symbol}", end=" ")
 
         room_symbol = symbols[room]
-        print(f"+2 x{room_symbol} >= {count_items(guests)};")
-
-
-def generate_triple_room_contraint(guests, rooms, symbols):
-    triple_rooms = rooms[RoomType.Triple.value]
-
-    for room in iter_list(RoomType.Triple.value, triple_rooms):
-        for guest in iter_all_items(guests):
-            symbol = symbols[f"{guest}{room}"]
-            print(f"+1 ~x{symbol}", end=" ")
-
-        room_symbol = symbols[room]
-        print(f"+3 x{room_symbol} >= {count_items(guests)};")
-
-
-def generate_quadruple_room_contraint(guests, rooms, symbols):
-    quad_rooms = rooms[RoomType.Quadruple.value]
-
-    for room in iter_list(RoomType.Quadruple.value, quad_rooms):
-        for guest in iter_all_items(guests):
-            symbol = symbols[f"{guest}{room}"]
-            print(f"+1 ~x{symbol}", end=" ")
-
-        room_symbol = symbols[room]
-        print(f"+4 x{room_symbol} >= {count_items(guests)};")
+        print(f"+{capacity} x{room_symbol} >= {count_items(guests)};")
 
 
 def iter_all_items(dict_):
