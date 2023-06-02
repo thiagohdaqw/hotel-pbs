@@ -1,11 +1,19 @@
 # hotel-pbs
 
+## Uso
+```bash
+$ export PATH=$PATH:<path_to_clasp_bin_folder>
+$ python3 -m hotel samples/root.desc
+```
+
+## Formulas
+
 | Sigla    | Significado  |
 |----------|:-------------:|
 | h        | quantidade de hóspedes |
 | q        | quantidade de quartos |
 | c        | quantidade de casais |
-| -c       | quantidade de não casais |
+| $\sim c$       | quantidade de não casais |
 | k         | quantidade de quartos de casal |
 | $Q_i$     | quarto $i$ |
 | $K_i$     | quarto de casal $i$ |
@@ -40,47 +48,112 @@ min: CQ + AH
 ## Cláusuras
 
 ### Base
-- **Todos os hóspedes devem estar em somente um quarto**
+1. **Todos os hóspedes devem estar em somente um quarto**
+
 ```math
 \forall i \in [1,h]
 \left ( \sum_{j=1}^{q} H_iQ_j = 1 \right )
 ```
 
-- **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
+2. **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
+
 ```math
 \forall j \in [1,q]
 \left ( \sum_{i=1}^{h} H_iQ_j \leq CAPACIDADE_j*Q_j  \right )
 ```
 
 ### Casal
-- **O casal deve estar no mesmo quarto**
+3. **O casal deve estar no mesmo quarto**
+
 ```math
 \forall z \in [1,c], j [1,q]
+```
+```math
 \left ( Cx_zQ_j = Cy_zQ_j  \right)
 ```
 
-- **Os casais devem estar em um quarto de casal**
+4. **Os casais devem estar em um quarto de casal**
+
 ```math
 \forall i \in [1,k]
 \left ( \sum_{z=1}^{c} C_zK_i \geq 1  \right )
 ```
 
+5. **Apenas casais podem estar em quartos de casal**
 
-- **Apenas casais podem estar em quartos de casal**
 ```math
 \forall j \in [1,k]
-\left ( \sum_{i=1}^{-c} H_iK_j = 0  \right )
+\left ( \sum_{i=1}^{\sim c} H_iK_j = 0  \right )
 ```
 
 ### Antipatia 
 
-- **Pessoas em um mesmo quarto geram uma antipatia**
+6. **Pessoas em um mesmo quarto geram uma antipatia**
+
 ```math
-\forall i \in [1,h], j \in [1,h], z \in [1,q] | i \neq j 
+\forall i \in [1,h], j \in [1,h], z \in [1,q] \mid i \neq j 
+```
+```math
 \left ( H_iQ_z + H_jQ_z \leq A_{ij} + 1  \right)
 ```
 
+## Cláusuras normalizadas
 
-## Uso
+### Base
+1. **Todos os hóspedes devem estar em somente um quarto**
 
-`python3 -m hotel samples/root.desc`
+```math
+\forall i \in [1,h]
+```
+```math
+\left ( \sum_{j=1}^{q} H_iQ_j \ge 1 \right )
+```
+```math
+\left ( \sum_{j=1}^{q} \bar{H_iQ_j} \ge q - 1 \right )
+```
+
+
+2. **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
+```math
+\forall j \in [1,q]
+\left ( \sum_{i=1}^{h} (\bar{H_iQ_j}) + CAPACIDADE_j*Q_j \ge h - 1 \right )
+```
+
+### Casal
+3. **O casal deve estar no mesmo quarto**
+```math
+\forall z \in [1,c], j [1,q]
+```
+```math
+\left ( Cx_zQ_j + \bar{Cy_zQ_j} \ge 1  \right)
+```
+```math
+\left ( \bar{Cx_zQ_j} + Cy_zQ_j \ge 1  \right)
+```
+
+4. **Os casais devem estar em um quarto de casal**
+```math
+\forall i \in [1,k]
+\left ( \sum_{z=1}^{c} C_zK_i \geq 1  \right )
+```
+
+5. **Apenas casais podem estar em quartos de casal**
+```math
+\forall j \in [1,k]
+```
+```math
+\left ( \sum_{i=1}^{\sim c} H_iK_j > 0  \right )
+```
+```math
+\left ( \sum_{i=1}^{\sim c} \bar{H_iK_j} > \sim c  \right )
+```
+
+### Antipatia 
+
+6. **Pessoas em um mesmo quarto geram uma antipatia**
+```math
+\forall i \in [1,h], j \in [1,h], z \in [1,q] | i \neq j
+```
+```math
+\left ( \bar{H_iQ_z} + \bar{H_jQ_z} + A_{ij} \ge 1  \right)
+```
