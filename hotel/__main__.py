@@ -1,43 +1,55 @@
 import sys
-
-from functools import partial
 from pprint import pprint
 
 import hotel.input as input
-import hotel.pbs_generator as pbs_generator
-import hotel.clasp_solver as clasp_solver
-
+import hotel.pbs as pbs
+import hotel.solver as solver
+import hotel.utils as utils
 from hotel.input import GuestType, RoomType
-
 
 capacity = {
     RoomType.Couple.value: 2,
     RoomType.Double.value: 2,
     RoomType.Triple.value: 3,
-    RoomType.Quadruple.value: 4
+    RoomType.Quadruple.value: 4,
 }
 
 
 def main(input_filename: str | None):
-    rooms, guests = input.parse_from_file(input_filename) if input_filename is not None else input.parse(sys.stdin)
+    rooms, guests = input.parse(sys.stdin) if input_filename is None else input.parse_from_file(input_filename)
 
-    pbs_generator.generate_symbols(rooms, guests)
-    pbs_generator.generate_minimize_room_capacity_contraint(rooms, capacity)
+    print("Entrada", "=" * 50)
+    print("rooms =")
+    pprint(rooms)
+    print("guests =")
+    pprint(guests)
 
-    constraints = [
-        partial(pbs_generator.generate_all_guests_in_one_room_constraint, rooms=rooms),
-        partial(pbs_generator.generate_capacity_room_contraint, capacity=2, rooms=rooms[RoomType.Double.value], room_type=RoomType.Double.value),
-        partial(pbs_generator.generate_capacity_room_contraint, capacity=3, rooms=rooms[RoomType.Triple.value], room_type=RoomType.Triple.value),
-        partial(pbs_generator.generate_capacity_room_contraint, capacity=4, rooms=rooms[RoomType.Quadruple.value], room_type=RoomType.Quadruple.value),
-    ]
+    pbs.generate_symbols(rooms, guests)
 
-    for constraint in constraints:
-        constraint(guests=guests)
+    print("\n", "Simbolos", "=" * 50)
+    print(pbs.symbols)
 
-    solution = clasp_solver.solve(guests)
+    pbs.generate_minimize_room_costs_constraint(rooms)
+
+    pbs.generate_all_guests_in_one_room_constraint(guests, rooms)
+
+    for room_type in (RoomType.Couple, RoomType.Double, RoomType.Triple, RoomType.Quadruple):
+        pbs.generate_capacity_room_constraint(
+            guests,
+            rooms[room_type.value],
+            room_type.value,
+            capacity[room_type.value],
+        )
+
+    pbs.generate_couple_must_be_same_room_constraint(guests[GuestType.Couple.value], rooms)
+
+    pbs.generate_only_couple_in_couple_room(guests[GuestType.NonCouple.value], rooms[RoomType.Couple.value])
+
+    solution = solver.solve(guests)
+
+    print("\n", "Resultado", "=" * 50)
     pprint(solution)
-
-    if DEBUG
+    print("Custo:", sum(utils.get_room_cost(rooms, room) for room in solution["rooms"]))
 
 
 if __name__ == "__main__":

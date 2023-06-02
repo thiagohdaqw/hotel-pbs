@@ -12,6 +12,7 @@ class GuestType(Enum):
     Masculine = "M"
     Feminine = "F"
     Couple = "C"
+    NonCouple = "S"
 
 
 Rooms = dict[RoomType, list[str]]

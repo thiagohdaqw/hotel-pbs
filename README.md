@@ -28,21 +28,21 @@ $ python3 -m hotel samples/root.desc
 
 ## Minimização
 
-- **O total dos custos dos quartos alugados**
+- **Minimizar o custo dos quartos alugados**
 ```math
-CQ = 
-\sum_{j=1}^{q} CUSTO_j * Q_j
+min:  
+\left( \sum_{j=1}^{q} CUSTO_j * Q_j \right)
 ```
 
-- **O total da antipatia entre os hóspedes**
+- **Minimizar a antipatia entre os hóspedes**
 ```math
-AH = 
-\sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij}
+min:
+\left( \sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij} \right)
 ```
 
-- **Minimizar o total de custos dos quartos e a antipatia entre os hóspedes**
+- **Minimizar o custo dos quartos e a antipatia entre os hóspedes**
 ```math
-min: CQ + AH
+min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij} \right)
 ```
 
 ## Cláusuras

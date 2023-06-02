@@ -1,26 +1,26 @@
 import os
 import re
 import sys
-
-from subprocess import Popen, PIPE
 from pprint import pprint
+from subprocess import PIPE, Popen
 
-import hotel.pbs_generator as pbs_generator
-
+import hotel.pbs as pbs
 
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 FORMULAE_FILE_NAME = sys.argv[1].rsplit("/", 1)[1] if len(sys.argv) > 1 else "stdin"
 
 
 def solve(guests):
-    with Popen(["clasp"], stdin=PIPE, stdout=PIPE, stderr=PIPE) as proc:
+    if DEBUG:
+        with open(f"formulae/{FORMULAE_FILE_NAME}.pbs", "w") as f:
+            write_pbs(f)
+
+    with Popen(["clasp"], stdin=PIPE, stdout=PIPE, stderr=PIPE, text=True) as proc:
         write_pbs(proc.stdin)
         proc.stdin.close()
         result = translate_solution(proc.stdout, guests)
 
     if DEBUG:
-        with open(f"formulae/{FORMULAE_FILE_NAME}.pbs", "wb") as f:
-            write_pbs(f)
         with open(f"result/{FORMULAE_FILE_NAME}.vars", "w") as f:
             pprint(result, stream=f)
 
@@ -28,25 +28,29 @@ def solve(guests):
 
 
 def write_pbs(file):
-    file.write(pbs_generator.generate_header().encode("utf-8"))
-    file.write(pbs_generator.min_constraint.encode("utf-8"))
-    file.writelines(line.encode("utf-8") for line in pbs_generator.constraints)
+    file.write(pbs.generate_header())
+    file.write("\n")
+
+    file.write(pbs.min_constraint)
+    file.write("\n")
+
+    for constraint in pbs.constraints:
+        file.write(constraint)
+        file.write("\n")
 
 
 def translate_solution(file, guests):
-    result = {'rooms': []}
+    result = {"rooms": []}
     is_solution_line = lambda line: line.startswith("v ")
-    symbols = [*pbs_generator.symbols.items()]
+    symbols = [*pbs.symbols.items()]
     symbols.sort(key=lambda x: x[1])
 
     if DEBUG:
-        clasp_debug_output_file = open(f"result/{FORMULAE_FILE_NAME}.clasp", "wb")
+        clasp_debug_output_file = open(f"result/{FORMULAE_FILE_NAME}.clasp", "w")
 
     for line in file:
         if DEBUG:
             clasp_debug_output_file.write(line)
-
-        line = line.decode("utf-8")
 
         if not is_solution_line(line):
             continue
@@ -56,7 +60,7 @@ def translate_solution(file, guests):
             if var.startswith("-"):
                 continue
 
-            symbol = symbols[int(var[1:])-1][0]
+            symbol = symbols[int(var[1:]) - 1][0]
             guest_room = re.match(r"^(.[0-9]+)(.[0-9]+)$", symbol)
 
             if not guest_room:
@@ -69,7 +73,6 @@ def translate_solution(file, guests):
             if room not in result:
                 result[room] = []
             result[room].append(guest_name)
-
 
     if DEBUG:
         clasp_debug_output_file.close()

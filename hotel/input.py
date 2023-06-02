@@ -1,6 +1,7 @@
+import itertools
 from typing import TextIO
 
-from hotel.model import Guests, GuestType, Rooms, RoomType
+from hotel.types import Guests, GuestType, Rooms, RoomType
 
 
 def parse_from_file(file: str):
@@ -23,7 +24,7 @@ def parse_rooms(file: TextIO) -> Rooms:
 
     for _ in range(rooms_count):
         room, cost = file.readline().split()
-        rooms[room[0]].append(cost)
+        rooms[room[0]].append(int(cost))
 
     return rooms
 
@@ -32,17 +33,31 @@ def parse_guests(file: TextIO) -> Guests:
     guests = {
         GuestType.Masculine.value: [],
         GuestType.Feminine.value: [],
-        GuestType.Feminine.value: [],
+        GuestType.Couple.value: [],
+        GuestType.NonCouple.value: [],
     }
+    indexes = {}
+    couples = set()
 
     for _ in range(3):
         count, guest_type = file.readline().split()
 
         if guest_type == GuestType.Couple.value:
             for _ in range(int(count)):
-                guests[guest_type].append(file.readline())
+                cx, cy = file.readline().split()
+                cx_type, cx_index = indexes[cx]
+                cy_type, cy_index = indexes[cy]
+                couples.add(cx)
+                couples.add(cy)
+                guests[guest_type].append((f"{cx_type}{cx_index}", f"{cy_type}{cy_index}"))
         else:
-            for name in file.readline().split():
+            for index, name in enumerate(file.readline().split()):
+                indexes[name] = (guest_type, index)
                 guests[guest_type].append(name)
-    
+
+    for type in (GuestType.Feminine, GuestType.Masculine):
+        for index, guest in enumerate(guests[type.value]):
+            if guest not in couples:
+                guests[GuestType.NonCouple.value].append(f"{type.value}{index}")
+
     return guests
