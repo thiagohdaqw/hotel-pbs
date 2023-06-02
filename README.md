@@ -72,14 +72,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 \left ( Cx_zQ_j = Cy_zQ_j  \right)
 ```
 
-4. **Os casais devem estar em um quarto de casal**
-
-```math
-\forall i \in [1,k]
-\left ( \sum_{z=1}^{c} C_zK_i \geq 1  \right )
-```
-
-5. **Apenas casais podem estar em quartos de casal**
+4. **Apenas casais podem estar em quartos de casal**
 
 ```math
 \forall j \in [1,k]
@@ -88,7 +81,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 
 ### Antipatia 
 
-6. **Pessoas em um mesmo quarto geram uma antipatia**
+5. **Pessoas em um mesmo quarto geram uma antipatia**
 
 ```math
 \forall i \in [1,h], j \in [1,h], z \in [1,q] \mid i \neq j 
@@ -131,13 +124,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 \left ( \bar{Cx_zQ_j} + Cy_zQ_j \ge 1  \right)
 ```
 
-4. **Os casais devem estar em um quarto de casal**
-```math
-\forall i \in [1,k]
-\left ( \sum_{z=1}^{c} C_zK_i \geq 1  \right )
-```
-
-5. **Apenas casais podem estar em quartos de casal**
+4. **Apenas casais podem estar em quartos de casal**
 ```math
 \forall j \in [1,k]
 ```
@@ -150,7 +137,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 
 ### Antipatia 
 
-6. **Pessoas em um mesmo quarto geram uma antipatia**
+5. **Pessoas em um mesmo quarto geram uma antipatia**
 ```math
 \forall i \in [1,h], j \in [1,h], z \in [1,q] | i \neq j
 ```
