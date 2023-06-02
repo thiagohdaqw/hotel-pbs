@@ -9,24 +9,32 @@
 | k         | quantidade de quartos de casal |
 | $Q_i$     | quarto $i$ |
 | $K_i$     | quarto de casal $i$ |
-| $CAP_j$ | constante da capacidade de um quarto $j$ |
-| $CUSTO_j$ | constade do custo de um quarto $j$ |
+| $CAPACIDADE_j$ | constante da capacidade de um quarto $j$ |
+| $CUSTO_j$ | constante do custo de um quarto $j$ |
 | $H_i Q_j$ | hóspede $i$ no quarto $j$
 | $C$ | um hóspede que pertence a um casal |
 | $Cx_z$, $Cy_z$ | hospede $x$ e seu par $y$, que são um casal $z$ |
 | $S_z$ | hospede solteiro que nao pertence a um casal |
+| $A_{ij}$ | Antipatia de um hospede $i$ e hospede $j$ no mesmo quarto |
+| $ANTIPATIA_{ij}$ | Constante que representa o quanto um hospede $i$ e hospede $j$ não querem ficar no mesmo quarto |
 
 ## Minimização
 
-- **Minimizar a quantidade de quartos**
+- **O total dos custos dos quartos alugados**
 ```math
-min: 
-\left ( \sum_{j=1}^{q} CAP_j * Q_j \right )
+CQ = 
+\sum_{j=1}^{q} CUSTO_j * Q_j
 ```
-- **Minimizar o custo dos quartos**
+
+- **O total da antipatia entre os hóspedes**
 ```math
-min: 
-\left ( \sum_{j=1}^{q} CUSTO_j * Q_j \right )
+AH = 
+\sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij}
+```
+
+- **Minimizar o total de custos dos quartos e a antipatia entre os hóspedes**
+```math
+min: CQ + AH
 ```
 
 ## Cláusuras
@@ -41,7 +49,7 @@ min:
 - **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
 ```math
 \forall j \in [1,q]
-\left ( \sum_{i=1}^{h} H_iQ_j \leq CAP_j*Q_j  \right )
+\left ( \sum_{i=1}^{h} H_iQ_j \leq CAPACIDADE_j*Q_j  \right )
 ```
 
 ### Casal
@@ -63,6 +71,15 @@ min:
 \forall j \in [1,k]
 \left ( \sum_{i=1}^{-c} H_iK_j = 0  \right )
 ```
+
+### Antipatia 
+
+- **Pessoas em um mesmo quarto geram uma antipatia**
+```math
+\forall i \in [1,h], j \in [1,h], z \in [1,q] | i \neq j 
+\left ( H_iQ_z + H_jQ_z \leq A_{ij} + 1  \right)
+```
+
 
 ## Uso
 
