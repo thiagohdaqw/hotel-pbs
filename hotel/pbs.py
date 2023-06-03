@@ -3,6 +3,7 @@ from typing import Dict
 import hotel.utils as utils
 from hotel.types import Dislikes, Guests, GuestType, Rooms, RoomType
 
+
 Symbols = Dict[str, int]
 
 min_constraint = ""

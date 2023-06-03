@@ -8,6 +8,7 @@ import hotel.solver as solver
 import hotel.utils as utils
 from hotel.input import GuestType, RoomType
 
+
 capacity = {
     RoomType.Couple.value: 2,
     RoomType.Double.value: 2,
@@ -56,7 +57,7 @@ def main(input_filename: Optional[str]):
 
     print("\n", "Resultado", "=" * 50)
     pprint(solution)
-    print("Custo:", sum(utils.get_room_cost(rooms, room) for room in solution["rooms"]))
+    print("Custo:", sum(utils.get_room_cost(rooms, room) for room in solution.keys()))
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ from subprocess import PIPE, Popen
 
 import hotel.pbs as pbs
 
+
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 FORMULAE_FILE_NAME = sys.argv[1].rsplit("/", 1)[1] if len(sys.argv) > 1 else "stdin"
 
@@ -40,7 +41,7 @@ def write_pbs(file):
 
 
 def translate_solution(file, guests):
-    result = {"rooms": []}
+    result = {}
     is_solution_line = lambda line: line.startswith("v ")
     symbols = [*pbs.symbols.items()]
     symbols.sort(key=lambda x: x[1])
@@ -62,14 +63,10 @@ def translate_solution(file, guests):
 
             symbol = symbols[int(var[1:]) - 1][0]
 
-            if symbol[0] == "A":
+            if symbol[0] not in "MF":
                 continue
 
             guest_room = re.match(r"^(.[0-9]+)(.[0-9]+)$", symbol)
-
-            if not guest_room:
-                result["rooms"].append(symbol)
-                continue
 
             room = guest_room.groups()[1]
             guest = guest_room.groups()[0]

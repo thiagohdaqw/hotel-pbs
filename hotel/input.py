@@ -1,5 +1,3 @@
-import itertools
-import re
 from typing import TextIO
 
 import hotel.utils as utils
