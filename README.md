@@ -38,12 +38,12 @@ min:
 - **Minimizar a antipatia entre os hóspedes**
 ```math
 min:
-\left( \sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij} \right)
+\left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} * A_{ij} \right)
 ```
 
 - **Minimizar o custo dos quartos e a antipatia entre os hóspedes**
 ```math
-min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j=1}^{h} ANTIPATIA_{ij} * A_{ij} \right)
+min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} * A_{ij} \right)
 ```
 
 ## Cláusuras
@@ -85,7 +85,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 5. **Pessoas em um mesmo quarto geram uma antipatia**
 
 ```math
-\forall i \in [1,h], j \in [1,h], z \in [1,q] \mid i \neq j 
+\forall i,j \in {h \choose 2}, z \in [1,q]
 ```
 ```math
 \left ( H_iQ_z + H_jQ_z \leq A_{ij} + 1  \right)
@@ -140,7 +140,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i=1}^{h} \sum_{j
 
 5. **Pessoas em um mesmo quarto geram uma antipatia**
 ```math
-\forall i \in [1,h], j \in [1,h], z \in [1,q] | i \neq j
+\forall i,j \in {h \choose 2}, z \in [1,q]
 ```
 ```math
 \left ( \bar{H_iQ_z} + \bar{H_jQ_z} + A_{ij} \ge 1  \right)
