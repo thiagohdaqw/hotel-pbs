@@ -3,6 +3,7 @@
 ## Uso
 ```bash
 $ export PATH=$PATH:<path_to_clasp_bin_folder>
+$ export DEBUG=1
 $ python3 -m hotel samples/root.desc
 ```
 

@@ -1,7 +1,7 @@
 10
+C 50
 C 100
-C 500
-C 250
+C 50
 D 150
 D 200
 T 250
@@ -16,3 +16,13 @@ Iasmine Chris Vanessa Rose
 2 C
 Bruno Rose
 Otaviano Vanessa
+9
+Bruno : Casimiro 20
+Otaviano : Igor 40 Iasmine 65
+Casimiro : Igor 0 DavyJones 2
+Igor : DavyJones 90
+DavyJones : Bruno 70 Igor 70
+Iasmine : Chris 90 Vanessa 30 Igor 40
+Chris : Iasmine 90 Vanessa 45 Rose 90
+Vanessa : Otaviano 100 Iasmine 60 Chris 60
+Rose : Vanessa 70 Chris 80

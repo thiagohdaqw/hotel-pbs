@@ -1,24 +1,58 @@
 c clasp version 3.3.9
 c Reading from stdin
 c Solving...
-o 1560
-o 1410
-o 810
-o 750
-o 700
-c Answer: 5
-v x1 -x2 -x3 x4 x5 x6 -x7 -x8 -x9 -x10 x11 -x12 -x13 -x14 -x15 -x16 -x17
-v -x18 -x19 -x20 -x21 -x22 -x23 -x24 x25 -x26 -x27 -x28 -x29 -x30 -x31 -x32
-v -x33 x34 -x35 -x36 -x37 -x38 -x39 -x40 -x41 -x42 -x43 -x44 -x45 x46 -x47
-v -x48 -x49 -x50 -x51 -x52 -x53 x54 -x55 -x56 -x57 -x58 -x59 -x60 -x61 -x62
-v -x63 -x64 -x65 x66 -x67 -x68 -x69 -x70 -x71 -x72 -x73 -x74 -x75 x76 -x77
-v -x78 -x79 -x80 -x81 -x82 -x83 -x84 x85 -x86 -x87 -x88 -x89 -x90 x91 -x92
-v -x93 -x94 -x95 -x96 -x97 -x98 -x99 -x100
+o 2680
+o 2600
+o 2530
+o 2510
+o 2494
+o 2230
+o 2160
+o 2144
+o 2130
+o 2094
+o 2060
+o 2009
+o 2004
+o 1930
+o 1870
+o 1820
+o 1819
+o 1815
+o 1765
+o 1704
+o 1654
+o 1620
+o 1525
+o 1475
+o 1425
+o 1375
+o 1285
+o 1280
+o 1090
+o 1040
+o 990
+o 980
+o 930
+o 880
+o 879
+o 829
+c Answer: 36
+v x1 -x2 x3 x4 -x5 x6 -x7 -x8 -x9 -x10 x11 -x12 -x13 -x14 -x15 -x16 -x17
+v -x18 -x19 -x20 -x21 -x22 x23 -x24 -x25 -x26 -x27 -x28 -x29 -x30 -x31 -x32
+v -x33 -x34 -x35 x36 -x37 -x38 -x39 -x40 -x41 -x42 -x43 -x44 -x45 x46 -x47
+v -x48 -x49 -x50 -x51 -x52 -x53 -x54 -x55 x56 -x57 -x58 -x59 -x60 -x61 -x62
+v -x63 x64 -x65 -x66 -x67 -x68 -x69 -x70 -x71 -x72 -x73 x74 -x75 -x76 -x77
+v -x78 -x79 -x80 -x81 -x82 x83 -x84 -x85 -x86 -x87 -x88 -x89 -x90 x91 -x92
+v -x93 -x94 -x95 -x96 -x97 -x98 -x99 -x100 -x101 -x102 -x103 -x104 -x105
+v -x106 -x107 x108 -x109 -x110 -x111 -x112 -x113 x114 -x115 x116 x117 -x118
+v -x119 -x120 -x121 x122 -x123 -x124 -x125 -x126 -x127 -x128 -x129 -x130
+v x131 -x132 -x133 -x134 -x135 -x136
 s OPTIMUM FOUND
 c 
-c Models         : 5
+c Models         : 36
 c   Optimum      : yes
-c Optimization   : 700
+c Optimization   : 829
 c Calls          : 1
-c Time           : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-c CPU Time       : 0.003s
+c Time           : 0.006s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+c CPU Time       : 0.006s

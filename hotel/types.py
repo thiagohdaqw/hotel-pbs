@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Dict, List
 
 
 class RoomType(Enum):
@@ -15,5 +16,6 @@ class GuestType(Enum):
     NonCouple = "S"
 
 
-Rooms = dict[RoomType, list[str]]
-Guests = dict[GuestType, list[str]]
+Rooms = Dict[RoomType, List[str]]
+Guests = Dict[GuestType, List[str]]
+Dislikes = Dict[str, int]

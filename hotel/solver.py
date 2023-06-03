@@ -61,6 +61,10 @@ def translate_solution(file, guests):
                 continue
 
             symbol = symbols[int(var[1:]) - 1][0]
+
+            if symbol[0] == "A":
+                continue
+
             guest_room = re.match(r"^(.[0-9]+)(.[0-9]+)$", symbol)
 
             if not guest_room:

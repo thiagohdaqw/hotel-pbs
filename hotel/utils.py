@@ -1,3 +1,5 @@
+import itertools
+
 from hotel.types import GuestType
 
 
@@ -14,6 +16,10 @@ def iter_all_items(dict_):
 def iter_list(type, list_):
     for index in range(len(list_)):
         yield f"{type}{index}"
+
+
+def iter_guest_pair(guests):
+    return itertools.combinations(iter_all_guests(guests), 2)
 
 
 def count_items(items):

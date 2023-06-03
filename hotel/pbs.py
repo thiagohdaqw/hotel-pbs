@@ -1,14 +1,16 @@
-import hotel.utils as utils
-from hotel.types import Guests, GuestType, Rooms, RoomType
+from typing import Dict
 
-Symbols = dict[str, int]
+import hotel.utils as utils
+from hotel.types import Dislikes, Guests, GuestType, Rooms, RoomType
+
+Symbols = Dict[str, int]
 
 min_constraint = ""
 constraints = []
 symbols = {}
 
 
-def generate_symbols(rooms: Rooms, guests: Guests) -> Symbols:
+def generate_symbols(rooms: Rooms, guests: Guests, dislikes: Dislikes) -> Symbols:
     count = 1
 
     for room in utils.iter_all_items(rooms):
@@ -20,6 +22,10 @@ def generate_symbols(rooms: Rooms, guests: Guests) -> Symbols:
             symbols[f"{guest}{room}"] = count
             count += 1
 
+    for dislike in dislikes.keys():
+        symbols[f"A{dislike}"] = count
+        count += 1
+
     return symbols
 
 
@@ -27,7 +33,7 @@ def generate_header():
     return f"* #variable={len(symbols)} #constraint= {len(constraints)}"
 
 
-def get_room_costs_contraint(rooms):
+def get_rooms_cost_contraint(rooms):
     constraint = ""
     for room in utils.iter_all_items(rooms):
         room_symbol = symbols[room]
@@ -36,9 +42,27 @@ def get_room_costs_contraint(rooms):
     return constraint
 
 
-def generate_minimize_room_costs_constraint(rooms):
+def get_dislikes_constraint(dislikes):
+    constraint = ""
+    for pair, dislike in dislikes.items():
+        dislike_symbol = symbols[f"A{pair}"]
+        constraint += f"+{dislike} x{dislike_symbol} "
+    return constraint
+
+
+def generate_minimize_rooms_cost_constraint(rooms):
     global min_constraint
-    min_constraint = f"min: {get_room_costs_contraint(rooms)};"
+    min_constraint = f"min: {get_rooms_cost_contraint(rooms)};"
+
+
+def generate_minimize_dislikes_constraint(dislikes):
+    global min_constraint
+    min_constraint = f"min: {get_dislikes_constraint(dislikes)};"
+
+
+def generate_minimize_rooms_cost_and_dislikes_constraint(rooms, dislikes):
+    global min_constraint
+    min_constraint = f"min: {get_rooms_cost_contraint(rooms)}{get_dislikes_constraint(dislikes)};"
 
 
 def generate_all_guests_in_one_room_constraint(guests, rooms):
@@ -91,3 +115,13 @@ def generate_only_couple_in_couple_room(non_couples, couple_rooms):
 
         constraints.append(constraint_01 + ">= 0;")
         constraints.append(constraint_02 + f">= {len(non_couples)};")
+
+
+def generate_guests_dislike_constrain(guests, rooms):
+    for guest_a, guest_b in utils.iter_guest_pair(guests):
+        dislike_symbol = symbols[f"A{guest_a}{guest_b}"]
+
+        for room in utils.iter_all_items(rooms):
+            guest_a_room_symbol = symbols[f"{guest_a}{room}"]
+            guest_b_room_symbol = symbols[f"{guest_b}{room}"]
+            constraints.append(f"+1 ~x{guest_a_room_symbol} +1 ~x{guest_b_room_symbol} +1 x{dislike_symbol} >= 1;")
