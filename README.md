@@ -16,15 +16,13 @@ $ python3 -m hotel samples/root.desc
 | c        | quantidade de casais |
 | $\sim c$       | quantidade de não casais |
 | k         | quantidade de quartos de casal |
-| $Q_i$     | quarto $i$ |
-| $K_i$     | quarto de casal $i$ |
+| $q_i$     | quarto $i$ |
+| $k_i$     | quarto de casal $i$ |
 | $CAPACIDADE_j$ | constante da capacidade de um quarto $j$ |
 | $CUSTO_j$ | constante do custo de um quarto $j$ |
-| $H_i Q_j$ | hóspede $i$ no quarto $j$
-| $C$ | um hóspede que pertence a um casal |
-| $Cx_z$, $Cy_z$ | hospede $x$ e seu par $y$, que são um casal $z$ |
-| $S_z$ | hospede solteiro que nao pertence a um casal |
-| $A_{ij}$ | Antipatia de um hospede $i$ e hospede $j$ no mesmo quarto |
+| $h_iq_j$ | hóspede $i$ no quarto $j$
+| $cx_z$, $cy_z$ | hospede $x$ e seu par $y$, que são um casal $z$ |
+| $a_{ij}$ | Antipatia de um hospede $i$ e hospede $j$ no mesmo quarto |
 | $ANTIPATIA_{ij}$ | Constante que representa o quanto um hospede $i$ e hospede $j$ não querem ficar no mesmo quarto |
 
 ## Minimização
@@ -32,18 +30,18 @@ $ python3 -m hotel samples/root.desc
 - **Minimizar o custo dos quartos alugados**
 ```math
 min:  
-\left( \sum_{j=1}^{q} CUSTO_j * Q_j \right)
+\left( \sum_{j=1}^{q} CUSTO_j . q_j \right)
 ```
 
 - **Minimizar a antipatia entre os hóspedes**
 ```math
 min:
-\left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} * A_{ij} \right)
+\left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} . a_{ij} \right)
 ```
 
 - **Minimizar o custo dos quartos e a antipatia entre os hóspedes**
 ```math
-min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} * A_{ij} \right)
+min: \left( \sum_{j=1}^{q} CUSTO_j . q_j \right) + \left( \sum_{i,j = {h \choose 2}} ANTIPATIA_{ij} . a_{ij} \right)
 ```
 
 ## Cláusuras
@@ -53,14 +51,14 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 
 ```math
 \forall i \in [1,h]
-\left ( \sum_{j=1}^{q} H_iQ_j = 1 \right )
+\left ( \sum_{j=1}^{q} h_iq_j = 1 \right )
 ```
 
 2. **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
 
 ```math
 \forall j \in [1,q]
-\left ( \sum_{i=1}^{h} H_iQ_j \leq CAPACIDADE_j*Q_j  \right )
+\left ( \sum_{i=1}^{h} h_iq_j \leq CAPACIDADE_j . q_j  \right )
 ```
 
 ### Casal
@@ -70,14 +68,14 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall z \in [1,c], j [1,q]
 ```
 ```math
-\left ( Cx_zQ_j = Cy_zQ_j  \right)
+\left ( cx_zq_j = cy_zq_j  \right)
 ```
 
 4. **Apenas casais podem estar em quartos de casal**
 
 ```math
 \forall j \in [1,k]
-\left ( \sum_{i=1}^{\sim c} H_iK_j = 0  \right )
+\left ( \sum_{i=1}^{\sim c} h_ik_j = 0  \right )
 ```
 
 ### Antipatia 
@@ -88,7 +86,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall i,j \in {h \choose 2}, z \in [1,q]
 ```
 ```math
-\left ( H_iQ_z + H_jQ_z \leq A_{ij} + 1  \right)
+\left ( h_iq_z + h_jq_z \leq a_{ij} + 1  \right)
 ```
 
 ## Cláusuras normalizadas
@@ -100,17 +98,17 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall i \in [1,h]
 ```
 ```math
-\left ( \sum_{j=1}^{q} H_iQ_j \ge 1 \right )
+\left ( \sum_{j=1}^{q} h_iq_j \ge 1 \right )
 ```
 ```math
-\left ( \sum_{j=1}^{q} \bar{H_iQ_j} \ge q - 1 \right )
+\left ( \sum_{j=1}^{q} \bar{h_iq_j} \ge q - 1 \right )
 ```
 
 
 2. **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
 ```math
 \forall j \in [1,q]
-\left ( \sum_{i=1}^{h} (\bar{H_iQ_j}) + CAPACIDADE_j*Q_j \ge h - 1 \right )
+\left ( \sum_{i=1}^{h} (\bar{h_iq_j}) + CAPACIDADE_j*q_j \ge h - 1 \right )
 ```
 
 ### Casal
@@ -119,10 +117,10 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall z \in [1,c], j [1,q]
 ```
 ```math
-\left ( Cx_zQ_j + \bar{Cy_zQ_j} \ge 1  \right)
+\left ( cx_zq_j + \bar{cy_zq_j} \ge 1  \right)
 ```
 ```math
-\left ( \bar{Cx_zQ_j} + Cy_zQ_j \ge 1  \right)
+\left ( \bar{cx_zq_j} + cy_zq_j \ge 1  \right)
 ```
 
 4. **Apenas casais podem estar em quartos de casal**
@@ -130,10 +128,10 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall j \in [1,k]
 ```
 ```math
-\left ( \sum_{i=1}^{\sim c} H_iK_j > 0  \right )
+\left ( \sum_{i=1}^{\sim c} h_ik_j > 0  \right )
 ```
 ```math
-\left ( \sum_{i=1}^{\sim c} \bar{H_iK_j} > \sim c  \right )
+\left ( \sum_{i=1}^{\sim c} \bar{h_ik_j} > \sim c  \right )
 ```
 
 ### Antipatia 
@@ -143,5 +141,5 @@ min: \left( \sum_{j=1}^{q} CUSTO_j * Q_j \right) + \left( \sum_{i,j = {h \choose
 \forall i,j \in {h \choose 2}, z \in [1,q]
 ```
 ```math
-\left ( \bar{H_iQ_z} + \bar{H_jQ_z} + A_{ij} \ge 1  \right)
+\left ( \bar{h_iq_z} + \bar{h_jq_z} + a_{ij} \ge 1  \right)
 ```
