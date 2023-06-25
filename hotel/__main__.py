@@ -21,6 +21,7 @@ def main(input_filename: Optional[str]):
     rooms, guests, dislikes = (
         input.parse(sys.stdin) if input_filename is None else input.parse_from_file(input_filename)
     )
+    ensure_problem_is_possible_to_solve(rooms, guests)
 
     print("Entrada", "=" * 50)
     print("rooms =")
@@ -59,6 +60,20 @@ def main(input_filename: Optional[str]):
     pprint(solution)
     print("Custo:", sum(utils.get_room_cost(rooms, room) for room in solution.keys()))
 
+
+def ensure_problem_is_possible_to_solve(rooms, guests):
+    couple_guest_count = len(guests[GuestType.Couple.value])
+    couple_room_count = len(rooms[RoomType.Couple.value])
+    non_couple_guest_count = len(guests[GuestType.NonCouple.value])
+    non_couple_room_capacity = 2*len(rooms[RoomType.Double.value]) + 3*len(rooms[RoomType.Triple.value]) + 4*len(rooms[RoomType.Quadruple.value])
+    couple_in_non_couple_room_count = max(couple_guest_count - couple_room_count, 0)
+    if 2 * couple_in_non_couple_room_count + non_couple_guest_count - non_couple_room_capacity > 0:
+        print("Não há quartos suficiente para alocar todos os hóspedes.")
+        print("Casais =", couple_guest_count)
+        print("Individual =", non_couple_guest_count)
+        print("Quartos de casais = ", couple_room_count)
+        print("Outros quartos capacidade =", non_couple_room_capacity)
+        exit(1)
 
 if __name__ == "__main__":
     input_filename = None
