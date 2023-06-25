@@ -42,6 +42,9 @@ def parse_guests(file: TextIO) -> Guests:
     for _ in range(3):
         count, guest_type = file.readline().split()
 
+        if count == "0":
+            continue
+
         if guest_type == GuestType.Couple.value:
             for _ in range(int(count)):
                 parse_couple(file, guests, couples, indexes)

@@ -67,6 +67,7 @@ def generate_minimize_rooms_cost_and_dislikes_constraint(rooms, dislikes):
 
 
 def generate_all_guests_in_one_room_constraint(guests, rooms):
+    room_count = utils.count_items(rooms)
     for guest in utils.iter_all_guests(guests):
         constraint = ""
         for room in utils.iter_all_items(rooms):
@@ -79,7 +80,7 @@ def generate_all_guests_in_one_room_constraint(guests, rooms):
         for room in utils.iter_all_items(rooms):
             symbol = symbols[f"{guest}{room}"]
             constraint += f"+1 ~x{symbol} "
-        constraints.append(constraint + f">= {utils.count_items(rooms) - 1};")
+        constraints.append(constraint + f">= {room_count - 1};")
 
 
 def generate_capacity_room_constraint(guests, rooms, room_type, capacity):

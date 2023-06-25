@@ -9,14 +9,18 @@ import hotel.pbs as pbs
 
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 FORMULAE_FILE_NAME = sys.argv[1].rsplit("/", 1)[1] if len(sys.argv) > 1 else "stdin"
-
+TIME_LIMIT = int(os.environ.get("TIME_LIMIT", "0"))
 
 def solve(guests):
     if DEBUG:
         with open(f"formulae/{FORMULAE_FILE_NAME}.pbs", "w") as f:
             write_pbs(f)
+    command = ["clasp"]
 
-    with Popen(["clasp"], stdin=PIPE, stdout=PIPE, stderr=PIPE, text=True) as proc:
+    if TIME_LIMIT > 0:
+        command.append(f"--time-limit={TIME_LIMIT}")
+
+    with Popen(command, stdin=PIPE, stdout=PIPE, stderr=PIPE, text=True) as proc:
         write_pbs(proc.stdin)
         proc.stdin.close()
         result = translate_solution(proc.stdout, guests)

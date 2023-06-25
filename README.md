@@ -108,7 +108,7 @@ min: \left( \sum_{j=1}^{q} CUSTO_j . q_j \right) + \left( \sum_{i,j = {h \choose
 2. **A quantidade de hóspede em um quarto deve ser menor ou igual a capacidade do quarto**
 ```math
 \forall j \in [1,q]
-\left ( \sum_{i=1}^{h} (\bar{h_iq_j}) + CAPACIDADE_j*q_j \ge h - 1 \right )
+\left ( \sum_{i=1}^{h} (\bar{h_iq_j}) + CAPACIDADE_j*q_j \ge h \right )
 ```
 
 ### Casal
