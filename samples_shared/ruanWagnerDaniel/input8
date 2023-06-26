@@ -1,0 +1,21 @@
+5
+D 200
+D 300
+D 500
+D 120
+D 250
+4 M
+Barton Ulysses Norberto Rolland
+6 F
+Lori Annabelle Valeria Julie Lea Elise
+3 C
+Barton Valeria
+Norberto Elise
+Rolland Julie
+6
+Barton : Norberto 70 Julie 60
+Ulysses : Rolland 85 Lea 62 Elise 30
+Valeria : Lea 40
+Julie : Lea 77
+Lea : Ulysses 49 
+Elise : Ulysses 42

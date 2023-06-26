@@ -1,0 +1,15 @@
+2
+C 100
+Q 20
+3 M
+Mario Luigi Toad
+2 F
+Peach Rosalina
+1 C
+Mario Peach
+5
+Mario : Luigi 90
+Luigi : Mario 90
+Toad : Mario 60 Luigi 60
+Peach : Luigi 50
+Rosalina : Luigi 50 Toad 50

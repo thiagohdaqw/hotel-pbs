@@ -54,5 +54,5 @@ c Models         : 26
 c   Optimum      : yes
 c Optimization   : 1749
 c Calls          : 1
-c Time           : 0.280s (Solving: 0.28s 1st Model: 0.00s Unsat: 0.25s)
-c CPU Time       : 0.280s
+c Time           : 0.278s (Solving: 0.28s 1st Model: 0.00s Unsat: 0.24s)
+c CPU Time       : 0.278s

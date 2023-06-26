@@ -1,0 +1,57 @@
+15
+C 302
+C 207
+C 204
+C 350
+D 210
+D 123
+D 125
+D 178
+D 152
+D 142
+T 110
+T 170
+T 90
+Q 120
+Q 125
+15 M
+Rich Barton Reginald Shawn Roman Modesto Denis Enoch Newton Arron Miles Octavio Dorian Greg Casey
+13 F
+Autumn Nora Rosalie Judith Lois Rosemarie Jody Terra Elinor Sandra Elisabeth Yolanda Susana
+7 C
+Reginald Judith
+Rich Nora
+Modesto Elinor
+Dorian Yolanda
+Greg Susana
+Shawn Rosemarie
+Enoch Lois
+28
+Rich : Reginald 23 Shawn 33 Denis 18 Enoch 54 Newton 70 Arron 34 Octavio 16 Autumn 84 Rosalie 68 Judith 87 Terra 74 Elinor 33 Sandra 85 Elisabeth 44 
+Barton : Rich 92 Reginald 95 Roman 59 Modesto 25 Denis 42 Arron 71 Octavio 38 Dorian 0 Greg 65 Autumn 36 Lois 49 Jody 3 Yolanda 15 Susana 15 
+Reginald : Barton 30 Shawn 96 Newton 2 Arron 57 Autumn 72 Lois 42 Rosemarie 50 Jody 2 Elinor 69 Sandra 86 Elisabeth 70 Yolanda 36 Susana 76 
+Shawn : Rich 93 Enoch 45 Newton 18 Miles 29 Octavio 71 Dorian 33 Nora 57 Jody 68 Elisabeth 17 
+Roman : Rich 26 Barton 22 Shawn 3 Modesto 56 Denis 95 Enoch 61 Octavio 76 Dorian 94 Greg 22 Autumn 63 Nora 77 Judith 34 Rosemarie 75 Jody 64 Sandra 90 Susana 74 
+Modesto : Reginald 36 Shawn 15 Roman 80 Enoch 17 Arron 66 Octavio 67 Greg 17 Nora 0 Jody 20 Sandra 80 Elisabeth 51 
+Denis : Reginald 18 Roman 81 Modesto 76 Enoch 54 Newton 78 Octavio 29 Greg 97 Judith 56 Lois 61 Rosemarie 81 Jody 3 Terra 29 Susana 15 
+Enoch : Barton 9 Reginald 51 Shawn 3 Roman 77 Modesto 5 Denis 33 Miles 8 Greg 66 Casey 81 Nora 51 Rosalie 30 Judith 59 Yolanda 62 
+Newton : Rich 58 Reginald 47 Shawn 96 Enoch 34 Dorian 76 Nora 45 Rosalie 93 Judith 6 Lois 20 Jody 27 Terra 73 Elinor 98 Sandra 31 Elisabeth 74 Yolanda 57 Susana 7 
+Arron : Rich 29 Reginald 24 Modesto 32 Denis 23 Enoch 33 Newton 86 Miles 63 Octavio 20 Dorian 98 Greg 44 Nora 83 Judith 60 Terra 94 Sandra 80 Elisabeth 100 Susana 43 
+Miles : Shawn 64 Modesto 51 Denis 29 Enoch 35 Newton 52 Arron 83 Dorian 39 Autumn 90 Nora 27 Judith 96 Lois 46 Rosemarie 10 Jody 3 Terra 59 Susana 50 
+Octavio : Barton 11 Reginald 31 Roman 69 Modesto 48 Denis 74 Enoch 75 Newton 66 Arron 62 Miles 95 Dorian 57 Greg 49 Casey 10 Judith 64 Terra 54 Sandra 75 
+Dorian : Shawn 58 Modesto 94 Denis 64 Enoch 71 Newton 90 Arron 86 Miles 33 Octavio 12 Greg 53 Judith 53 Jody 52 
+Greg : Shawn 70 Roman 83 Denis 5 Newton 80 Dorian 89 Casey 36 Autumn 63 Nora 65 Terra 56 Elisabeth 43 
+Casey : Barton 79 Reginald 19 Modesto 1 Enoch 36 Miles 46 Octavio 68 Greg 14 Nora 84 Jody 0 Elisabeth 80 
+Autumn : Rich 91 Reginald 71 Shawn 71 Denis 60 Enoch 14 Newton 61 Miles 19 Octavio 100 Dorian 26 Casey 94 Nora 22 Judith 93 Lois 95 Terra 23 Elinor 59 Sandra 91 Elisabeth 77 Yolanda 67 Susana 8 
+Nora : Barton 30 Shawn 38 Modesto 10 Enoch 43 Arron 49 Octavio 87 Dorian 77 Casey 98 Autumn 13 Rosemarie 48 Terra 61 Elinor 68 Yolanda 47 
+Rosalie : Barton 84 Reginald 95 Shawn 89 Roman 94 Denis 27 Newton 83 Arron 86 Miles 81 Octavio 76 Greg 40 Nora 32 Elinor 83 Sandra 98 Elisabeth 7 Yolanda 39 Susana 16 
+Judith : Rich 68 Modesto 53 Denis 57 Enoch 1 Newton 79 Casey 16 Autumn 88 Nora 47 Rosalie 58 Jody 43 Elinor 36 Sandra 19 Susana 75 
+Lois : Rich 76 Reginald 16 Denis 94 Newton 26 Octavio 51 Rosalie 38 Judith 10 Sandra 35 Elisabeth 49 
+Rosemarie : Barton 94 Roman 61 Modesto 75 Enoch 42 Newton 40 Arron 67 Miles 66 Dorian 61 Greg 3 Autumn 38 Nora 44 Judith 84 Jody 19 
+Jody : Rich 44 Barton 65 Reginald 98 Shawn 42 Modesto 59 Denis 21 Arron 50 Miles 7 Dorian 16 Casey 20 Lois 77 Rosemarie 92 Yolanda 45 
+Terra : Rich 99 Barton 80 Shawn 72 Roman 25 Modesto 63 Denis 43 Newton 56 Dorian 36 Greg 63 Autumn 1 Judith 75 Lois 4 Jody 88 Elinor 99 Sandra 45 Elisabeth 66 Yolanda 8 Susana 73 
+Elinor : Barton 10 Reginald 86 Octavio 7 Casey 22 Lois 38 Jody 92 Yolanda 83 Susana 52 
+Sandra : Reginald 49 Miles 13 Octavio 21 Greg 57 Casey 86 Autumn 32 Nora 42 Rosemarie 47 Terra 15 Yolanda 58 
+Elisabeth : Reginald 39 Shawn 96 Denis 16 Arron 18 Octavio 38 Dorian 55 Greg 40 Casey 35 Jody 16 Sandra 21 Susana 6 
+Yolanda : Rich 5 Barton 16 Shawn 51 Roman 0 Modesto 1 Denis 76 Newton 21 Arron 30 Miles 71 Greg 6 Judith 55 Rosemarie 59 Sandra 51 Susana 66 
+Susana : Reginald 76 Shawn 93 Modesto 46 Newton 67 Arron 62 Octavio 23 Nora 0 Rosalie 64 Judith 87 Rosemarie 7 Terra 90 Elinor 46 Sandra 16 Yolanda 16

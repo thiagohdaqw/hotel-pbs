@@ -1,0 +1,5 @@
+Não há quartos suficiente para alocar todos os hóspedes.
+Casais = 2
+Individual = 17
+Quartos de casais =  1
+Outros quartos capacidade = 14

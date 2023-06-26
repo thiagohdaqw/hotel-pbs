@@ -1,0 +1,14 @@
+3
+C 100
+D 90
+T 130
+2 M
+Joao Bruno
+5 F
+Ana Rosa Maria Luana Vina
+1 C
+Joao Maria
+3
+Bruno : Ana 80 Rosa 80
+Ana : Bruno 80 Rosa 80
+Rosa : Bruno 80 Ana 80

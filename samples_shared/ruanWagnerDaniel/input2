@@ -1,0 +1,14 @@
+2
+D 100
+D 200
+2 M
+Bruno Otaviano
+2 F
+Rose Clara
+1 C
+Bruno Rose
+4
+Bruno : Otaviano 50
+Otaviano : Bruno 50
+Rose : Otaviano 70
+Clara : Rose 50

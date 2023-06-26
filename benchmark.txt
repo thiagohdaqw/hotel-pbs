@@ -55,3 +55,116 @@ user	0m0.028s
 sys	0m0.004s
 
 input10 ================================================
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/esw/a190020377/sat/hotel/hotel-pbs/hotel/__main__.py", line 84, in <module>
+    main(input_filename)
+  File "/home/esw/a190020377/sat/hotel/hotel-pbs/hotel/__main__.py", line 57, in main
+    solution = solver.solve(guests)
+  File "/home/esw/a190020377/sat/hotel/hotel-pbs/hotel/solver.py", line 26, in solve
+    result = translate_solution(proc.stdout, guests)
+  File "/home/esw/a190020377/sat/hotel/hotel-pbs/hotel/solver.py", line 56, in translate_solution
+    for line in file:
+  File "/usr/lib/python3.10/codecs.py", line 319, in decode
+    def decode(self, input, final=False):
+KeyboardInterrupt
+[Mon Jun 26 08:02:26 PM -03 2023]: samples_shared/ruanWagnerDaniel/ *************************************************
+input1 ================================================
+0.03user 0.00system 0:00.05elapsed 57%CPU (0avgtext+0avgdata 12084maxresident)k
+52inputs+32outputs (0major+1799minor)pagefaults 0swaps
+
+input10 ================================================
+TLE
+
+input2 ================================================
+0.01user 0.01system 0:00.05elapsed 49%CPU (0avgtext+0avgdata 12168maxresident)k
+0inputs+32outputs (0major+1798minor)pagefaults 0swaps
+
+input3 ================================================
+0.02user 0.00system 0:00.04elapsed 65%CPU (0avgtext+0avgdata 12244maxresident)k
+0inputs+32outputs (0major+1801minor)pagefaults 0swaps
+
+input4 ================================================
+0.03user 0.00system 0:00.05elapsed 75%CPU (0avgtext+0avgdata 12164maxresident)k
+0inputs+32outputs (0major+1794minor)pagefaults 0swaps
+
+input5 ================================================
+0.05user 0.01system 0:00.07elapsed 81%CPU (0avgtext+0avgdata 12180maxresident)k
+0inputs+32outputs (0major+1809minor)pagefaults 0swaps
+
+input6 ================================================
+0.04user 0.00system 0:00.06elapsed 74%CPU (0avgtext+0avgdata 12208maxresident)k
+0inputs+32outputs (0major+1812minor)pagefaults 0swaps
+
+input7 ================================================
+0.08user 0.00system 0:00.12elapsed 72%CPU (0avgtext+0avgdata 12432maxresident)k
+0inputs+56outputs (0major+1885minor)pagefaults 0swaps
+
+input8 ================================================
+0.05user 0.00system 0:00.08elapsed 76%CPU (0avgtext+0avgdata 12408maxresident)k
+0inputs+48outputs (0major+1840minor)pagefaults 0swaps
+
+input9 ================================================
+0.04user 0.01system 0:00.07elapsed 81%CPU (0avgtext+0avgdata 12352maxresident)k
+0inputs+32outputs (0major+1817minor)pagefaults 0swaps
+
+input_ex ================================================
+29.45user 0.00system 0:29.47elapsed 99%CPU (0avgtext+0avgdata 12168maxresident)k
+0inputs+136outputs (0major+2619minor)pagefaults 0swaps
+
+input_unsat ================================================
+Command exited with non-zero status 1
+0.01user 0.00system 0:00.03elapsed 80%CPU (0avgtext+0avgdata 12040maxresident)k
+0inputs+8outputs (0major+1615minor)pagefaults 0swaps
+TLE
+
+[Mon Jun 26 08:10:06 PM -03 2023]: samples_shared/marcosJohanVictor/ *************************************************
+fedorento.txt ================================================
+0.01user 0.00system 0:00.04elapsed 66%CPU (0avgtext+0avgdata 12272maxresident)k
+0inputs+40outputs (0major+1852minor)pagefaults 0swaps
+
+garanhao.txt ================================================
+0.02user 0.00system 0:00.04elapsed 69%CPU (0avgtext+0avgdata 12156maxresident)k
+0inputs+56outputs (0major+1868minor)pagefaults 0swaps
+
+infiel.txt ================================================
+0.02user 0.00system 0:00.03elapsed 71%CPU (0avgtext+0avgdata 12256maxresident)k
+0inputs+48outputs (0major+1840minor)pagefaults 0swaps
+
+input.txt ================================================
+0.02user 0.00system 0:00.04elapsed 70%CPU (0avgtext+0avgdata 12240maxresident)k
+0inputs+56outputs (0major+1867minor)pagefaults 0swaps
+
+Lobosolitario.txt ================================================
+0.02user 0.00system 0:00.04elapsed 64%CPU (0avgtext+0avgdata 12356maxresident)k
+0inputs+48outputs (0major+1857minor)pagefaults 0swaps
+
+Mais_gente_que_quarto.txt ================================================
+Command exited with non-zero status 1
+0.02user 0.00system 0:00.02elapsed 86%CPU (0avgtext+0avgdata 11984maxresident)k
+0inputs+8outputs (0major+1627minor)pagefaults 0swaps
+TLE
+
+odiado.txt ================================================
+0.02user 0.00system 0:00.04elapsed 67%CPU (0avgtext+0avgdata 12200maxresident)k
+0inputs+40outputs (0major+1843minor)pagefaults 0swaps
+
+sem_casal.txt ================================================
+0.02user 0.00system 0:00.04elapsed 75%CPU (0avgtext+0avgdata 12288maxresident)k
+0inputs+40outputs (0major+1861minor)pagefaults 0swaps
+
+so_casal.txt ================================================
+0.02user 0.00system 0:00.03elapsed 69%CPU (0avgtext+0avgdata 12212maxresident)k
+0inputs+48outputs (0major+1834minor)pagefaults 0swaps
+
+so_F.txt ================================================
+0.03user 0.00system 0:00.04elapsed 75%CPU (0avgtext+0avgdata 12332maxresident)k
+0inputs+48outputs (0major+1880minor)pagefaults 0swaps
+
+so_H.txt ================================================
+0.02user 0.00system 0:00.03elapsed 73%CPU (0avgtext+0avgdata 12312maxresident)k
+0inputs+40outputs (0major+1844minor)pagefaults 0swaps
+
