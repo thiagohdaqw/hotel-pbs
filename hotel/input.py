@@ -80,6 +80,8 @@ def parse_dislikes(file, guests, indexes):
         others_affinities = others.split(" ")
 
         for index in range(0, len(others_affinities), 2):
+            if index + 1 >= len(others_affinities):
+                break
             other, affinity = others_affinities[index], int(others_affinities[index + 1])
             guests_dislikes[guest_index][indexes[other]] = calculate_dislike(affinity)
 
@@ -107,4 +109,4 @@ def fill_non_couples(guests, couples):
 
 
 def calculate_dislike(affinity):
-    return 100 - affinity
+    return min(max(100 - affinity, 100), 0)

@@ -1,0 +1,25 @@
+10
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+Q 50
+7 M
+RileyBurch ZechariahRea JarretTripp JustusKnoll AdrienBatista M1 M2
+7 F
+TerriCobb YvonneFrench DamarisLauer ElyseSchneider AdelineFerguson AlexisSchaeffer M1
+2 C
+RileyBurch YvonneFrench
+JustusKnoll AdrienBatista
+5
+RileyBurch : JarretTripp 0 AdelineFerguson 0 JustusKnoll 0
+ZechariahRea : RileyBurch 0
+JarretTripp : ZechariahRea 0 RileyBurch 0 JustusKnoll 0
+JustusKnoll : AdrienBatista 0 DamarisLauer 0
+AdelineFerguson : TerriCobb 0 AdrienBatista 0
+M1: RileyBurch 0 ZechariahRea 0 JarretTripp 0 JustusKnoll 0 M2 0 TerriCobb 0

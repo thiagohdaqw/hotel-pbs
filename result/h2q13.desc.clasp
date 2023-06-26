@@ -1,0 +1,24 @@
+c clasp version 3.3.5
+c Reading from stdin
+c Solving...
+o 1867
+o 1174
+o 1169
+o 1072
+o 374
+o 372
+o 289
+o 236
+o 153
+c Answer: 9
+v -x1 x2 -x3 -x4 -x5 -x6 -x7 -x8 -x9 -x10 -x11 -x12 -x13 -x14 x15 -x16 -x17
+v -x18 -x19 -x20 -x21 -x22 -x23 -x24 -x25 -x26 -x27 x28 -x29 -x30 -x31 -x32
+v -x33 -x34 -x35 -x36 -x37 -x38 -x39 x40
+s OPTIMUM FOUND
+c 
+c Models         : 9
+c   Optimum      : yes
+c Optimization   : 153
+c Calls          : 1
+c Time           : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+c CPU Time       : 0.000s

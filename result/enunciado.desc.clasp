@@ -1,0 +1,64 @@
+c clasp version 3.3.5
+c Reading from stdin
+c Solving...
+o 2680
+o 2550
+o 2494
+o 2180
+o 2165
+o 2160
+o 2159
+o 2130
+o 2109
+o 2060
+o 2009
+o 1965
+o 1940
+o 1875
+o 1775
+o 1774
+o 1750
+o 1705
+o 1680
+o 1647
+o 1605
+o 1604
+o 1584
+o 1575
+o 1534
+o 1525
+o 1514
+o 1479
+o 1379
+o 1329
+o 1305
+o 1290
+o 1289
+o 1255
+o 1239
+o 1139
+o 1130
+o 1095
+o 1080
+o 1079
+o 1029
+o 979
+c Answer: 42
+v x1 x2 -x3 x4 -x5 x6 -x7 -x8 -x9 -x10 x11 -x12 -x13 -x14 -x15 -x16 -x17
+v -x18 -x19 -x20 -x21 x22 -x23 -x24 -x25 -x26 -x27 -x28 -x29 -x30 -x31 -x32
+v -x33 -x34 -x35 x36 -x37 -x38 -x39 -x40 -x41 -x42 -x43 -x44 -x45 x46 -x47
+v -x48 -x49 -x50 -x51 -x52 -x53 -x54 -x55 x56 -x57 -x58 -x59 -x60 -x61 -x62
+v -x63 x64 -x65 -x66 -x67 -x68 -x69 -x70 -x71 -x72 -x73 x74 -x75 -x76 -x77
+v -x78 -x79 -x80 -x81 x82 -x83 -x84 -x85 -x86 -x87 -x88 -x89 -x90 x91 -x92
+v -x93 -x94 -x95 -x96 -x97 -x98 -x99 -x100 -x101 -x102 -x103 -x104 -x105
+v -x106 -x107 x108 -x109 -x110 -x111 -x112 -x113 x114 -x115 x116 x117 -x118
+v -x119 -x120 -x121 x122 -x123 -x124 -x125 -x126 -x127 -x128 -x129 -x130
+v x131 -x132 -x133 -x134 -x135 -x136
+s OPTIMUM FOUND
+c 
+c Models         : 42
+c   Optimum      : yes
+c Optimization   : 979
+c Calls          : 1
+c Time           : 0.011s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+c CPU Time       : 0.011s
