@@ -168,3 +168,97 @@ so_H.txt ================================================
 0.02user 0.00system 0:00.03elapsed 73%CPU (0avgtext+0avgdata 12312maxresident)k
 0inputs+40outputs (0major+1844minor)pagefaults 0swaps
 
+[Wed Jun 28 08:38:08 PM -03 2023]: samples_shared/marcosJohanVictor/ *************************************************
+fedorento.txt ================================================
+0.02user 0.00system 0:00.05elapsed 56%CPU (0avgtext+0avgdata 12220maxresident)k
+0inputs+40outputs (0major+1850minor)pagefaults 0swaps
+
+garanhao.txt ================================================
+0.01user 0.01system 0:00.04elapsed 61%CPU (0avgtext+0avgdata 12404maxresident)k
+0inputs+56outputs (0major+1870minor)pagefaults 0swaps
+
+infiel.txt ================================================
+0.02user 0.00system 0:00.04elapsed 60%CPU (0avgtext+0avgdata 12256maxresident)k
+0inputs+48outputs (0major+1844minor)pagefaults 0swaps
+
+input.txt ================================================
+0.01user 0.01system 0:00.04elapsed 69%CPU (0avgtext+0avgdata 12340maxresident)k
+0inputs+56outputs (0major+1866minor)pagefaults 0swaps
+
+Lobosolitario.txt ================================================
+0.02user 0.00system 0:00.04elapsed 69%CPU (0avgtext+0avgdata 12192maxresident)k
+0inputs+48outputs (0major+1853minor)pagefaults 0swaps
+
+Mais_gente_que_quarto.txt ================================================
+Command exited with non-zero status 1
+0.02user 0.00system 0:00.02elapsed 86%CPU (0avgtext+0avgdata 12012maxresident)k
+0inputs+8outputs (0major+1628minor)pagefaults 0swaps
+TLE
+
+odiado.txt ================================================
+0.02user 0.00system 0:00.04elapsed 65%CPU (0avgtext+0avgdata 12200maxresident)k
+0inputs+40outputs (0major+1843minor)pagefaults 0swaps
+
+sem_casal.txt ================================================
+0.02user 0.00system 0:00.04elapsed 65%CPU (0avgtext+0avgdata 12256maxresident)k
+0inputs+40outputs (0major+1857minor)pagefaults 0swaps
+
+so_casal.txt ================================================
+0.02user 0.00system 0:00.04elapsed 62%CPU (0avgtext+0avgdata 12216maxresident)k
+0inputs+48outputs (0major+1836minor)pagefaults 0swaps
+
+so_F.txt ================================================
+0.03user 0.00system 0:00.05elapsed 64%CPU (0avgtext+0avgdata 12292maxresident)k
+0inputs+48outputs (0major+1879minor)pagefaults 0swaps
+
+so_H.txt ================================================
+0.02user 0.00system 0:00.04elapsed 63%CPU (0avgtext+0avgdata 12288maxresident)k
+0inputs+40outputs (0major+1845minor)pagefaults 0swaps
+
+[Wed Jun 28 08:46:07 PM -03 2023]: samples_shared/marcosJohanVictor/ *************************************************
+fedorento.txt ================================================
+0.03user 0.00system 0:00.03elapsed 87%CPU (0avgtext+0avgdata 12128maxresident)k
+0inputs+8outputs (0major+1844minor)pagefaults 0swaps
+
+garanhao.txt ================================================
+0.05user 0.00system 0:00.06elapsed 92%CPU (0avgtext+0avgdata 12060maxresident)k
+0inputs+8outputs (0major+1862minor)pagefaults 0swaps
+
+infiel.txt ================================================
+0.04user 0.00system 0:00.05elapsed 90%CPU (0avgtext+0avgdata 12304maxresident)k
+0inputs+8outputs (0major+1852minor)pagefaults 0swaps
+
+input.txt ================================================
+0.02user 0.00system 0:00.03elapsed 87%CPU (0avgtext+0avgdata 12368maxresident)k
+0inputs+8outputs (0major+1867minor)pagefaults 0swaps
+
+Lobosolitario.txt ================================================
+0.02user 0.00system 0:00.03elapsed 82%CPU (0avgtext+0avgdata 12272maxresident)k
+0inputs+8outputs (0major+1852minor)pagefaults 0swaps
+
+Mais_gente_que_quarto.txt ================================================
+Command exited with non-zero status 1
+0.02user 0.00system 0:00.03elapsed 86%CPU (0avgtext+0avgdata 12100maxresident)k
+0inputs+8outputs (0major+1628minor)pagefaults 0swaps
+TLE
+
+odiado.txt ================================================
+0.02user 0.00system 0:00.03elapsed 87%CPU (0avgtext+0avgdata 12192maxresident)k
+0inputs+8outputs (0major+1838minor)pagefaults 0swaps
+
+sem_casal.txt ================================================
+0.03user 0.00system 0:00.03elapsed 86%CPU (0avgtext+0avgdata 12256maxresident)k
+0inputs+8outputs (0major+1855minor)pagefaults 0swaps
+
+so_casal.txt ================================================
+0.03user 0.00system 0:00.04elapsed 87%CPU (0avgtext+0avgdata 12312maxresident)k
+0inputs+8outputs (0major+1850minor)pagefaults 0swaps
+
+so_F.txt ================================================
+0.04user 0.00system 0:00.04elapsed 89%CPU (0avgtext+0avgdata 12276maxresident)k
+0inputs+8outputs (0major+1872minor)pagefaults 0swaps
+
+so_H.txt ================================================
+0.02user 0.00system 0:00.03elapsed 83%CPU (0avgtext+0avgdata 12140maxresident)k
+0inputs+8outputs (0major+1834minor)pagefaults 0swaps
+

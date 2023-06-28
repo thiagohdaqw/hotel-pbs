@@ -3,7 +3,7 @@
 SAMPLES_FOLDER="${1:-samples}"
 SAMPLES="$(ls ./$SAMPLES_FOLDER)";
 
-export DEBUG=1
+export DEBUG=0
 
 >&2 echo "[$(date)]: $SAMPLES_FOLDER *************************************************"
 for s in $SAMPLES; do
