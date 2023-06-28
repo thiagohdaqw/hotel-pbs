@@ -106,6 +106,9 @@ def generate_couple_must_be_same_room_constraint(couples, rooms):
 
 
 def generate_only_couple_in_couple_room(non_couples, couple_rooms):
+    if len(non_couples) == 0:
+        return
+
     for room in utils.iter_list(RoomType.Couple.value, couple_rooms):
         constraint_01 = ""
         constraint_02 = ""
