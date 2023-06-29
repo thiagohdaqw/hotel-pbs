@@ -1,8 +1,14 @@
 c clasp version 3.3.5
 c Reading from stdin
-s UNKNOWN
+c Solving...
+o 200
+c Answer: 1
+v x1 x2 x3 x4
+s OPTIMUM FOUND
 c 
-c Models         : 0+
+c Models         : 1
+c   Optimum      : yes
+c Optimization   : 200
 c Calls          : 1
 c Time           : 0.000s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 c CPU Time       : 0.000s
